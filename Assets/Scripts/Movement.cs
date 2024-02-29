@@ -6,7 +6,7 @@ public class Movement : MonoBehaviour
 {
 
     public Rigidbody rbPajaro;
-    public float potencia = 20;
+    public float potencia = 20f;
     public Transform player;
 
     // Start is called before the first frame update
@@ -25,19 +25,26 @@ public class Movement : MonoBehaviour
         if (positionPlayer.y > 8)
         {
             transform.position = new Vector3(positionPlayer.x, 8, positionPlayer.z);
+            rbPajaro.AddForce(Vector3.down*potencia, ForceMode.Impulse);
 
         }
         else if (positionPlayer.y < -2)
         {
             transform.position = new Vector3(positionPlayer.x, -2, positionPlayer.z);
+            rbPajaro.AddForce(Vector3.up*potencia, ForceMode.Impulse);
         }
 
 
 
 
-        //transform.Translate(Vector3.forward*Time.deltaTime*10);
-        rbPajaro.AddForce(Vector3.right * hor * 5);
-        rbPajaro.AddForce(Vector3.up * vert * potencia);
+        
+        rbPajaro.AddForce(Vector3.right * hor*5);
+         
+        if(Input.GetKeyDown(KeyCode.UpArrow)){
+
+            rbPajaro.AddForce(Vector3.up *  potencia, ForceMode.Impulse);
+
+        }
 
 
 
