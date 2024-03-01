@@ -20,7 +20,7 @@ public class camera : MonoBehaviour
     {
         Vector3 cameraposition = transform.position;
         Vector3 playerPosition = possitionPlayer.position;
-        Vector3 newPosition = new Vector3(playerPosition.x+6, cameraposition.y, -10);
+        Vector3 newPosition = new Vector3(playerPosition.x, cameraposition.y, -10);
 
 
         transform.position = newPosition;
