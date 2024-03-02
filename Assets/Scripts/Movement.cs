@@ -61,7 +61,7 @@ public class Movement : MonoBehaviour
             // rbPajaro.AddForce(Vector3.right * hor*5);
             //Pulsa boton arriba para desplazar 
 
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetButtonDown("Fire1"))
             {
 
                 rbPajaro.AddForce(Vector3.up * potencia, ForceMode.Impulse);

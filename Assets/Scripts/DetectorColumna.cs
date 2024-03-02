@@ -7,6 +7,7 @@ public class DetectorColumnas : MonoBehaviour
     public TMP_Text textPoint;//PARA LA PUNTUACIÓN EN LA UI
     
     public int puntuacion = 0;
+    private int puntuacionMax;
     public int puntosPorColumna = 1;
 
     void OnTriggerExit()
@@ -15,6 +16,6 @@ public class DetectorColumnas : MonoBehaviour
         textPoint.GetComponentInChildren<TextMeshProUGUI>().SetText(puntuacion.ToString());//PARA LA PUNTUACIÓN EN LA UI
         PlayerPrefs.SetInt("puntuacion",puntuacion);
         PlayerPrefs.Save();
-        
+
     }
 }
