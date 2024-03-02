@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -9,10 +9,21 @@ public class Movement : MonoBehaviour
     public float potencia = 20f;
     public Transform player;
     private AudioSource audioJump;
+    private int puntuacionMax;
+    public TMP_Text textMaxPoint;
 
     // Start is called before the first frame update
     void Start()
     {
+         if (PlayerPrefs.HasKey("puntuacion")) 
+        {
+            puntuacionMax = PlayerPrefs.GetInt("puntuacion");
+            textMaxPoint.GetComponentInChildren<TextMeshProUGUI>().SetText(puntuacionMax.ToString());
+        }
+        else 
+        {
+            puntuacionMax = 0;
+        }
         if (rbPajaro != null || player != null)
         {
             rbPajaro = GetComponent<Rigidbody>();
@@ -25,8 +36,6 @@ public class Movement : MonoBehaviour
     {
         if (rbPajaro != null || player != null)
         {
-            float hor = Input.GetAxis("Horizontal");
-            float vert = Input.GetAxis("Vertical");
             Vector3 positionPlayer = player.position;
 
             //Evitar que salga mas arriba de pantalla  o mas abajo
